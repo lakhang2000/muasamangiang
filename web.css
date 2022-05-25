@@ -1,0 +1,25 @@
+.top{
+    height:80px;
+    /* background-color:#008B8B; */
+}
+
+
+<?php 
+if(isset($_GET['quanly'])=='capnhat'){
+    $id_capnhat=$_GET['id'];
+    $sql_capnhat=mysqli_query($con,"SELECT * FROM loaihanghoa WHERE maloaihang='$id_capnhat' ");
+    $row_capnhat=mysqli_fetch_array( $sql_capnhat);
+?>
+<div class="col-md-4">
+<h4 class="text-warning">Cập Nhật Danh Mục</h4><br>
+
+<form name="frdanhmuc" action="" method="POST">
+<input type="text" class="form-control" placeholder="" name="danhmuc" value="<?php echo $row_capnhat['tenloaihang']?>"/>
+<input type="hidden" class="form-control" name="id_danhmuc" value="<?php echo $row_capnhat['maloaihang']?>"/><br>
+<input type="submit"  name="capnhatdanhmuc" value="Cập Nhật" class="btn btn-danger"/>
+</form>
+</div>
+    <?php
+
+}
+?>   
